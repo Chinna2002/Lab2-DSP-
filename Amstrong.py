@@ -7,6 +7,7 @@ while(temp>0):
     rem=temp%10
     sum=sum+rem*rem*rem
     temp=temp//10
+print("Sum of digits in the number is:",sum)
 if(x==sum):#Checking whether sum and n are equal or not
     print("It is amstrong number")
 else:
