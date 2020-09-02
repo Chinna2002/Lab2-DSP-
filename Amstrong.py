@@ -9,6 +9,6 @@ while(temp>0):
     temp=temp//10
 print("Sum of digits in the number is:",sum)
 if(x==sum):#Checking whether sum and n are equal or not
-    print("It is amstrong number")
+    print("It is an amstrong number")
 else:
-    print("It is not a amstrong number")
+    print("It is not an amstrong number")
