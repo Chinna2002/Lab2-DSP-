@@ -35,8 +35,6 @@ elif(choice==3):
     print ( l1 )
 elif(choice==4):
     x = 0
-
-
     def search(arr) :  # Fuction 1
         x = int ( input ( "Enter search element:" ) )
         for i in arr :
