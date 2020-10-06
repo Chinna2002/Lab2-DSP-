@@ -39,7 +39,7 @@ class LinkedList:
             cur = cur.next
 
     # Method to delete a node at the middle of linked list
-    def del_at_middle(self, key):
+    def delmiddle(self, key):
         cur = self.head
         if cur and cur.data == key:
             self.head = None
@@ -65,6 +65,6 @@ ll.print_list()
 
 # Printing the linked list after deletion
 k = input("Enter the node you wanna delete : ")
-ll.del_at_middle(k)
+ll.delmiddle(k)
 print("The Linked List after deleting the given node : ")
 ll.print_list()
