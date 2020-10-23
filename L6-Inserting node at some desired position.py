@@ -1,4 +1,4 @@
-# Program to add a tail at the middle of the linked list
+# Program to add at desired position in the linked list
 print("121910313006","Kadiyala Rohit Bharadwaj")
 # Defining the Node class
 class Node:
@@ -33,16 +33,8 @@ class LinkedList:
             print(cur.data)
             cur = cur.next
 
-    # Method to add node at the end of the linked list
-    def add_last(self, data):
-        new_node = Node(data)
-        cur = self.head
-        while cur.next:
-            cur = cur.next
-        cur.next = new_node
-
     # Method to add node at the middle of a linked list
-    def add_middle(self, prev_node, data):
+    def addRandom(self, prev_node, data):
         new_node = Node(data)
         cur = self.head
         while cur:
@@ -70,7 +62,7 @@ ll.print_list()
 # Taking a value to add at the linked list
 n = input("Enter the data you want to add : ")
 k = input("Enter the node after which you want to add it : ")
-ll.add_middle(k, n)
+ll.addRandom(k, n)
 
 # Prninting the updated linked list
 print("The Updated Linked List is : ")
