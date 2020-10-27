@@ -1,3 +1,4 @@
+print("121910313006","Kadiyala Rohit Bharadwaj")
 class Stack:
     def __init__(self):
         self.items = []
