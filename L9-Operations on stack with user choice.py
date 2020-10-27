@@ -7,8 +7,10 @@ class Stack:
         self.items.append(data)
 
     def pop(self):
-        if s.items!=[]: return self.items.pop()
-
+        if s.items!=[]: 
+            return self.items.pop()
+        else:
+            print("UnderFlow Condition")
     def printstack(self):
         print(self.items)
 s=Stack()
