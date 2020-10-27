@@ -2,11 +2,10 @@ print("121910313006","Kadiyala Rohit Bharadwaj")
 class Node:
     def __init__(self, data):
         self.data = data
-        self.prev = None
         self.next = None
 
 
-class DLL:
+class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
@@ -18,7 +17,6 @@ class DLL:
             self.tail = new_node
             return
         new_node.next = self.head
-        self.head.prev = new_node
         self.head = new_node
 
     def add_at_end(self, data):
@@ -28,22 +26,15 @@ class DLL:
             self.tail = new_node
             return
         self.tail.next = new_node
-        new_node.prev = self.tail
         self.tail = new_node
 
-    def remove_tail(self):
-        if self.head is None:
-            print("Underflow")
-            return
-        p = None
-        t = self.head
-        while t.next:
-            p = t
-            t = t.next
-        l = t.data
-        p.next = None
-        t = None
-        return l
+    def remove_head(self):
+        if self.head and self.head.next:
+            d = self.head
+            self.head = self.head.next
+            d.next = None
+        return d.data
+
     def printlist(self):
         cur = self.head
         while cur:
@@ -52,15 +43,15 @@ class DLL:
         print()
 
 
-class StackLL:
+class SLL:
     def __init__(self):
-        self.items = DLL()
+        self.items = LinkedList()
 
     def push(self, data):
         self.items.add_at_end(data)
 
     def pop(self):
-        return self.items.remove_tail()
+        return self.items.remove_head()
 
     def peek(self):
         return self.items.tail.data
@@ -68,14 +59,14 @@ class StackLL:
     def printstack(self):
         self.items.printlist()
 
-
-s = StackLL()
+s = SLL()
 n=int(input("Enter Stack size:"))
 for i in range(n):
     s.push(int(input("Enter Element:")))
 print("Original Stack is")
-s.printstack()
-print("peek is:", s.peek())
-print("Stack element which is removed is:",s.pop())
+s.printstack()#Displaying the Stack
+print("peek is:", s.peek())#Displaying the Top most element
+print("Stack element which is removed is:",s.pop())#removing the top element
 print("The Updated Stack is:")
 s.printstack()
+
