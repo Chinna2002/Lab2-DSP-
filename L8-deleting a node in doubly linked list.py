@@ -61,7 +61,7 @@ for i in range(n):
 print("The old linked list : ")
 dll.print_list()
 print()
-k = input("Enter the node after which we should delete: ")
+k = input("Enter the node  to  delete: ")
 dll.delete(k)
 print("The updated linked list is : ")
 dll.print_list()
