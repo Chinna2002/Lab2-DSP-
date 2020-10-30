@@ -31,18 +31,9 @@ class DoublyLinkedList:
             print(cur.data, end=' ')
             cur = cur.next
 
-    # Method to Update Head
-    def prepend(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            return
-        new_node.next = self.head
-        self.head.prev = new_node
-        self.head = new_node
 
     # Method to insert at middle
-    def add_at_middle(self, key, data):
+    def addDesired(self, key, data):
         new_node = Node(data)
         cur = self.head
         while cur.next:
@@ -66,7 +57,7 @@ dll.print_list()
 print()
 k = input("Enter the node after which we should add the node : ")
 h = input("Enter the new node : ")
-dll.add_at_middle(k, h)
+dll.addDesired(k, h)
 print("The updated linked list is : ")
 dll.print_list()
 
