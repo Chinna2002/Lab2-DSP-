@@ -1,6 +1,5 @@
 print("121910313006","Kadiyala Rohit Bharadwaj")
 def postfix(exp):
-    exp = exp.split()
     s=[]
     for i in exp:
         if i.isdigit():
