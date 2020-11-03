@@ -7,7 +7,7 @@ def postfix(exp):
         else:
             a = s.pop()
             b = s.pop()
-            s.append(str(eval(a+i+b)))
+            s.append(str(eval(b+i+a)))
     return s.pop()
 exp = str(input("Enter an expression:"))
 val = postfix(exp)
