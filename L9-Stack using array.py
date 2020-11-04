@@ -2,10 +2,12 @@ print("121910313006","Kadiyala Rohit Bharadwaj")
 class Stack:
     def __init__(self):
         self.items = []
-
-    def push(self, data):
+    def push(self,data,n):
+      if data not in self.items and len(self.items) < n:
         self.items.append(data)
-
+        return
+      print("OverFlow")
+      return
     def pop(self):
         if (self.items == []):
             print("UnderFlow Condition")
@@ -17,18 +19,14 @@ class Stack:
         return len(self.items)
 
     def printstack(self):
-        if(self.items == []):
-            print("UnderFlow Condition")
-        else:
-            print(self.items)
+        print(self.items)
 
 
 s = Stack()
 n=int(input("Enter size of the stack:"))
 for i in range(n):
-    n=int(input("Enter element:"))
-    s.push(n)
-z=s.length()
+    b=int(input("Enter element:"))
+    s.push(b,n)
 s.printstack()
 print("Length of the Stack is:",s.length())
 print("The top element is:",s.peek())
@@ -37,4 +35,3 @@ print("Updated Stack:")
 s.printstack()
 print("The top element now  is:",s.peek())
 print("Length of the Stack is:",s.length())
-
