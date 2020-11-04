@@ -4,7 +4,11 @@ class Stack:
         self.items = []
 
     def push(self, data):
-        self.items.append(data)
+       if data not in self.items and len(self.items)<=n:
+            self.stack.append(data)
+            return
+        print("OverFlow")
+        return
 
     def pop(self):
         if s.items!=[]: 
@@ -15,11 +19,12 @@ class Stack:
         print(self.items)
 s=Stack()
 i=True
+l=int(input("Enter size of stack "))
 while(i):
     print("1.Push","2.Pop","3.Display","4.Exit")
     choice = int(input("Select an Option:"))
     if(choice==1):
-        s.push(int(input("Enter Element:")))
+        s.push(int(input("Enter Element:")),l)
     elif (choice == 2):
         print("The Stack Element popped is:",s.pop())
     elif (choice == 3):
