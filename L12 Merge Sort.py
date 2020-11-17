@@ -1,56 +1,34 @@
 print("121910313006","Kadiyala Rohit Bharadwaj")
-print("Merge Sort")
-def mergeSort(a):
-    current_size = 1
-    while current_size < len(a) - 1:
+print("Merge Sort ")
+# Function for Merge sort
+def mergesort(list):
+    if len(list) < 2: return list
+    mi = int(len(list)/2)
+    le = mergesort(list[:mi])
+    ri = mergesort(list[mi:])
+    return merge(le, ri)
 
-        left = 0
-        while left < len(a) - 1:
-            mid = min((left + current_size - 1), (len(a) - 1))
-            right = ((2 * current_size + left - 1,
-                      len(a) - 1)[2 * current_size
-                                  + left - 1 > len(a) - 1])
-            merge(a, left, mid, right)
-            left = left + current_size * 2
-        current_size = 2 * current_size
-def merge(a, l, m, r):
-    n1 = m - l + 1
-    n2 = r - m
-    L = [0] * n1
-    R = [0] * n2
-    for i in range(0, n1):
-        L[i] = a[l + i]
-    for i in range(0, n2):
-        R[i] = a[m + i + 1]
-
-    i, j, k = 0, 0, l
-    while i < n1 and j < n2:
-        if L[i] > R[j]:
-            a[k] = R[j]
-            j += 1
+def merge(le, ri):
+    if not len(le) or not len(ri): return le or ri
+    result = []
+    i, j = 0, 0
+    while (len(result) < len(le) + len(ri)):
+        if le[i] < ri[j]:
+            result.append(le[i])
+            i+= 1
         else:
-            a[k] = L[i]
-            i += 1
-        k += 1
-
-    while i < n1:
-        a[k] = L[i]
-        i += 1
-        k += 1
-
-    while j < n2:
-        a[k] = R[j]
-        j += 1
-        k += 1
-
-
-l=[]
-n=int(input("Enter Number of elements:"))
-for i in range(n):
-    l.append(int(input("Enter Element:")))
-print("Given array is: ")
-print(l)
-
-mergeSort(l)
-print("Sorted array is ")
-print(l)
+            result.append(ri[j])
+            j+= 1
+        if i == len(le) or j == len(ri):
+            result.extend(le[i:] or ri[j:])
+            break
+    return result
+lst = []
+num = int(input("Enter number of elements : "))
+for i in range(0, num):
+    ele = int(input("Enter Element:"))
+    lst.append(ele)
+print("Present List/Array:")
+print(lst)
+print("Array/list after Merge Sort:")
+print(mergesort(lst))
