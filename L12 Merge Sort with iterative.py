@@ -1,56 +1,30 @@
 print("121910313006","Kadiyala Rohit Bharadwaj")
-print("Merge Sort")
-def mergeSort(a):
-    current_size = 1
-    while current_size < len(a) - 1:
-
-        left = 0
-        while left < len(a) - 1:
-            mid = min((left + current_size - 1), (len(a) - 1))
-            right = ((2 * current_size + left - 1,
-                      len(a) - 1)[2 * current_size
-                                  + left - 1 > len(a) - 1])
-            merge(a, left, mid, right)
-            left = left + current_size * 2
-        current_size = 2 * current_size
-def merge(a, l, m, r):
-    n1 = m - l + 1
-    n2 = r - m
-    L = [0] * n1
-    R = [0] * n2
-    for i in range(0, n1):
-        L[i] = a[l + i]
-    for i in range(0, n2):
-        R[i] = a[m + i + 1]
-
-    i, j, k = 0, 0, l
-    while i < n1 and j < n2:
-        if L[i] > R[j]:
-            a[k] = R[j]
-            j += 1
+print("****MERGE SORT WITH ITERATION******")
+def Merge(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    Lft, Right = Merge(arr[:mid]), Merge(arr[mid:])
+    return merge(Lft, Right)
+def merge(Lft, Right):
+    result = []
+    i = j = 0
+    while j < len(Lft) and i < len(Right):
+        if Lft[j] <= Right[i]:
+            result.append(Lft[j])
+            j = j + 1
         else:
-            a[k] = L[i]
-            i += 1
-        k += 1
-
-    while i < n1:
-        a[k] = L[i]
-        i += 1
-        k += 1
-
-    while j < n2:
-        a[k] = R[j]
-        j += 1
-        k += 1
-
-
-l=[]
-n=int(input("Enter Number of elements:"))
-for i in range(n):
-    l.append(int(input("Enter Element:")))
-print("Given array is: ")
-print(l)
-
-mergeSort(l)
-print("Sorted array is ")
-print(l)
+            result.append(Right[i])
+            i = i + 1
+    result.extend(Lft[j:])
+    result.extend(Right[i:])
+    return result
+lst = []
+num = int(input("Enter number of elements : "))
+for i in range(0, num):
+    ele = int(input("Enter Element:"))
+    lst.append(ele)
+print("Present List/Array:")
+print(lst)
+print("Array/list after Merge Sort:")
+print(Merge(lst))
