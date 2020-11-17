@@ -1,5 +1,5 @@
 print("121910313006","Kadiyala Rohit Bharadwaj")
-print("SELECTION SORT")
+print("Merge Sort")
 def mergeSort(a):
     current_size = 1
     while current_size < len(a) - 1:
